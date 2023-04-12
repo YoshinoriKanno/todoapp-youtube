@@ -11,10 +11,14 @@ const InputForm = ({taskList, setTaskList}) => {
     setTaskList([
       ...taskList,
       {
+        id: taskList.length,
         text: inputText,
+        completed: false
       },
     ]);    
-    console.log(taskList)
+    // console.log(taskList)
+    // 入力した文字を消す
+    setInputText("")
 
 
   }
@@ -26,7 +30,7 @@ const InputForm = ({taskList, setTaskList}) => {
   return (
     <div className="inputForm">
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} />
+        <input type="text" onChange={handleChange} value={inputText} />
         <button>
         <i className="fas fa-plus-square"></i>
         </button>
